@@ -34,4 +34,5 @@ func (d *BpfFile) Generator(m *model.ConfigMessage) {
 	directorc.ConstructC()
 	result2 := C.GetResultC()
 	fmt.Println(result2)
+
 }

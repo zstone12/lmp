@@ -50,7 +50,7 @@ func execute(m model.ConfigMessage) {
 	script = append(script, m.Pid)
 	newScript := strings.Join(script, " ")
 	cmd := exec.Command("sudo","python", collector, newScript)
-
+	
 	stdout, err := cmd.StdoutPipe()
 	if err != nil {
 		seelog.Error(err)
