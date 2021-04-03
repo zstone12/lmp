@@ -24,7 +24,23 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-    
+      
+      # docker 镜像缓存
+      - name: docker for influxdb & grafana
+        run: |
+          # For grafana
+            sudo docker pull grafana/grafana
+            # For Influxdb
+            sudo docker pull influxdb
+            
+             sudo docker run -d \
+             -p 8083:8083 \
+             -p 8086:8086 \
+             --name influxdb \
+             -v GITHUB_WORKSPACE/lmp/test/influxdb_config/default.conf:/etc/influxdb/influxdb.conf \
+             -v GITHUB_WORKSPACE/lmp/test/influxdb_config/data:/var/lib/influxdb/data \
+             -v GITHUB_WORKSPACE/lmp/test/influxdb_config/meta:/var/lib/influxdb/meta \
+             -v GITHUB_WORKSPACE/lmp/test/influxdb_config/wal:/var/lib/influxdb/wal influxdb
       # python 
       - name: Set up Python 3.6
         uses: actions/setup-python@v1
@@ -39,20 +55,20 @@ jobs:
           # if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       
       # bcc
-#       - name: Install bcc
-#         run: |
-#           sudo apt-get update
-#           sudo apt-get -y install bison build-essential cmake flex git libedit-dev libllvm6.0 llvm-6.0-dev libclang-6.0-dev python zlib1g-dev libelf-dev libfl-dev
-#           git clone https://github.com/iovisor/bcc.git
-#           mkdir bcc/build; cd bcc/build
-#           cmake ..
-#           make
-#           sudo make install
-#           cmake -DPYTHON_CMD=python3 .. # build python3 binding
-#           pushd src/python/
-#           make
-#           sudo make install
-#           popd
+      - name: Install bcc
+        run: |
+          sudo apt-get update
+          sudo apt-get -y install bison build-essential cmake flex git libedit-dev libllvm6.0 llvm-6.0-dev libclang-6.0-dev python zlib1g-dev libelf-dev libfl-dev
+          git clone https://github.com/iovisor/bcc.git
+          mkdir bcc/build; cd bcc/build
+          cmake ..
+          make
+          sudo make install
+          cmake -DPYTHON_CMD=python3 .. # build python3 binding
+          pushd src/python/
+          make
+          sudo make install
+          popd
 
       # test
       - name: Test plugins
