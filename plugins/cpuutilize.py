@@ -100,17 +100,20 @@ dist = b.get_table("dist")
 
 cpu = [0, 0]
 # times = 0
-
+n=100
 while (1):
     try:
         sleep(1)
         for k, v in dist.items():
             cpu[k.value] = 1.0 * (v.total - v.idle) / v.total * 100
             #times += 1
-            #print("%-6d%-16d%-16d%-6.4f%%" % (k.value, v.total, v.idle, 1.0 *(v.total - v.idle) / v.total * 100))
+            print("%-6d%-16d%-16d%-6.4f%%" % (k.value, v.total, v.idle, 1.0 *(v.total - v.idle) / v.total * 100))
             test_data = lmp_data(
                 datetime.now().isoformat(), 'glob', cpu[k.value])
             write2db(data_struct, test_data, influx_client, DatabaseType.INFLUXDB.value)
+            n-=1
+            if n==0:
+                break
         dist.clear()
 
     except KeyboardInterrupt:
