@@ -38,7 +38,7 @@ jobs:
           
       - name: Test plugins
         run: |
-          pwd
+          ls -l
           
       - name: Run a multi-line script
         run: |
