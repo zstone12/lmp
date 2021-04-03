@@ -37,10 +37,10 @@ jobs:
              -p 8083:8083 \
              -p 8086:8086 \
              --name influxdb \
-             -v GITHUB_WORKSPACE/lmp/test/influxdb_config/default.conf:/etc/influxdb/influxdb.conf \
-             -v GITHUB_WORKSPACE/lmp/test/influxdb_config/data:/var/lib/influxdb/data \
-             -v GITHUB_WORKSPACE/lmp/test/influxdb_config/meta:/var/lib/influxdb/meta \
-             -v GITHUB_WORKSPACE/lmp/test/influxdb_config/wal:/var/lib/influxdb/wal influxdb
+             -v test/influxdb_config/default.conf:/etc/influxdb/influxdb.conf \
+             -v test/influxdb_config/data:/var/lib/influxdb/data \
+             -v test/influxdb_config/meta:/var/lib/influxdb/meta \
+             -v test/influxdb_config/wal:/var/lib/influxdb/wal influxdb
       # python 
       - name: Set up Python 3.6
         uses: actions/setup-python@v1
