@@ -34,7 +34,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo /usr/bin/python3 -m pip install --upgrade pip
-          sudo /usr/bin/python3 -m pip install influxdb
+          sudo /usr/bin/python3 -m pip install influxdb pyyaml
           # if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       
       # bcc
