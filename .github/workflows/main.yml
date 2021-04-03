@@ -31,9 +31,13 @@ jobs:
         with:
           go-version: '1.14'
       
-      - name: make & run lmp
+      - name: make lmp
         run: |
           go build -mod=vendor -o lmp main.go
+          
+      - name: run lmp
+        run: |
+          sudo ./lmp
         
       # docker 镜像缓存
 #       - name: docker for influxdb & grafana
