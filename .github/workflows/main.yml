@@ -34,7 +34,7 @@ jobs:
       
       - name: make & run lmp
         run: |
-          make
+          go build -mod=vendor -o lmp main.go
           sudo ./lmp
         
       # docker 镜像缓存
