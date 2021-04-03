@@ -38,7 +38,7 @@ jobs:
              -v /home/runner/work/lmp/lmp/test/influxdb_config/default.conf:/etc/influxdb/influxdb.conf \
              -v /home/runner/work/lmp/lmp/test/influxdb_config/data:/var/lib/influxdb/data \
              -v /home/runner/work/lmp/lmp/test/influxdb_config/meta:/var/lib/influxdb/meta \
-             -v /home/runner/work/lmp/lmp/test/influxdb_config/wal:/var/lib/influxdb/wal influxdb
+             -v /home/runner/work/lmp/lmp/test/influxdb_config/wal:/var/lib/influxdb/wal influxdb:1.8.3
       # python 
       - name: Set up Python 3.6
         uses: actions/setup-python@v1
