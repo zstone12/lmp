@@ -24,7 +24,8 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-
+    
+      # python 
       - name: Set up Python 3.6
         uses: actions/setup-python@v1
         with:
@@ -35,11 +36,23 @@ jobs:
           python -m pip install --upgrade pip
           pip install influxdb
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-          
+      
+      # bcc
+      - name: Install bcc
+        run: |
+          sudo apt-get update
+          sudo apt-get -y install bpfcc-tools linux-headers-$(uname -r)
+      
+      # test
       - name: Test plugins
         run: |
           sudo python3 plugins/cpuutilize.py
-          
+      
+      
+      # go
+      
+      # docker
+      
       - name: Run a multi-line script
         run: |
           echo Add other actions to build,
