@@ -38,7 +38,7 @@ jobs:
           
       - name: Test plugins
         run: |
-          ls -l
+          sudo python3 plugins/cpuutilze.py
           
       - name: Run a multi-line script
         run: |
