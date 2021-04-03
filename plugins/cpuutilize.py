@@ -100,7 +100,8 @@ dist = b.get_table("dist")
 
 cpu = [0, 0]
 # times = 0
-n=100
+print("helloworld")
+n=10
 while (1):
     try:
         sleep(1)
