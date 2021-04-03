@@ -100,6 +100,7 @@ dist = b.get_table("dist")
 
 cpu = [0, 0]
 # times = 0
+
 n=10
 while (1):
     try:
