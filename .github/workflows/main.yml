@@ -33,9 +33,9 @@ jobs:
      
       - name: Install dependencies
         run: |
-          python3 -m pip install --upgrade pip
-          pip3 install influxdb
-          if [ -f requirements.txt ]; then pip3 install -r requirements.txt; fi
+          sudo /usr/bin/python3 -m pip install --upgrade pip
+          sudo /usr/bin/python3 -m pip install influxdb
+          # if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       
       # bcc
       - name: Install bcc
@@ -53,10 +53,6 @@ jobs:
           sudo make install
           popd
 
-      # test 
-      - name: Test pip
-        run : |
-          pip3 list
       # test
       - name: Test plugins
         run: |
