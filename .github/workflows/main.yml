@@ -26,19 +26,19 @@ jobs:
       - uses: actions/checkout@v2
       
       # docker 镜像缓存
-#       - name: docker for influxdb & grafana
-#         run: |
-#             sudo docker pull grafana/grafana
-#             sudo docker pull influxdb
+      - name: docker for influxdb & grafana
+        run: |
+            sudo docker pull grafana/grafana
+            sudo docker pull influxdb
             
-#              sudo docker run -d \
-#              -p 8083:8083 \
-#              -p 8086:8086 \
-#              --name influxdb \
-#              -v /home/runner/work/lmp/lmp/test/influxdb_config/default.conf:/etc/influxdb/influxdb.conf \
-#              -v /home/runner/work/lmp/lmp/test/influxdb_config/data:/var/lib/influxdb/data \
-#              -v /home/runner/work/lmp/lmp/test/influxdb_config/meta:/var/lib/influxdb/meta \
-#              -v /home/runner/work/lmp/lmp/test/influxdb_config/wal:/var/lib/influxdb/wal influxdb
+             sudo docker run -d \
+             -p 8083:8083 \
+             -p 8086:8086 \
+             --name influxdb \
+             -v /home/runner/work/lmp/lmp/test/influxdb_config/default.conf:/etc/influxdb/influxdb.conf \
+             -v /home/runner/work/lmp/lmp/test/influxdb_config/data:/var/lib/influxdb/data \
+             -v /home/runner/work/lmp/lmp/test/influxdb_config/meta:/var/lib/influxdb/meta \
+             -v /home/runner/work/lmp/lmp/test/influxdb_config/wal:/var/lib/influxdb/wal influxdb
       # python 
       - name: Set up Python 3.6
         uses: actions/setup-python@v1
