@@ -24,27 +24,6 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: checkout
-      - uses: actions/checkout@v2
-      
-
-      - name: Set up Python
-        uses: actions/setup-python@v1
-        with:
-          python-version: 3.6
-
-      # 最麻烦的就是bcc
-      #- name: bcc
-
-      - name: go
-      - uses: actions/setup-go@v2
-        with:
-          go-version: '1.14.1' # The Go version to download (if necessary) and use.
-      - run: go version
-
-
-      - name: Setup Go environment
-        uses: actions/setup-go@v2.1.3
       
 
       #- name: docker 
