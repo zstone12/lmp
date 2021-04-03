@@ -24,11 +24,10 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      # 这一句不太懂
       - name: checkout
       - uses: actions/checkout@v2
       
+
       - name: Set up Python
         uses: actions/setup-python@v1
         with:
@@ -49,7 +48,7 @@ jobs:
         if: steps.pip-cache.outputs.cache-hit != 'true'
       
       # 最麻烦的就是bcc
-      - name: bcc
+      #- name: bcc
 
       - name: go
       - uses: actions/setup-go@v2
