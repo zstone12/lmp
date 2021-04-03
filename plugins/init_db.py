@@ -6,7 +6,9 @@ USER = cfg["influxdb"]["user"]
 PASSWORD = cfg["influxdb"]["password"]
 
 influx_client = InfluxDBClient(database=DBNAME,host='localhost',username=USER,password=PASSWORD)
-influx_client.write_points()
+tmp = [{"measurement": None, "tags": {}, "fields": {}, }]
+influx_client.write_points(tmp)
+
 # TODO: 接入其他数据库
 # mysql_client
 # es_client
