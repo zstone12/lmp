@@ -73,7 +73,7 @@ jobs:
       # test
       - name: Test plugins
         run: |
-          sudo python3 plugins/cpuutilize.py.py
+          sudo python3 plugins/cpuutilize.py
       
       
       # go
