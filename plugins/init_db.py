@@ -11,3 +11,4 @@ influx_client = InfluxDBClient(database=DBNAME,host='localhost',username=USER,pa
 # mysql_client
 # es_client
 # prometheus_client
+# test
