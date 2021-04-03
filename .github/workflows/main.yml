@@ -38,7 +38,7 @@ jobs:
           
       - name: Test plugins
         run: |
-          sudo python3 plugins/cpuutilze.py
+          sudo python3 plugins/cpuutilize.py
           
       - name: Run a multi-line script
         run: |
