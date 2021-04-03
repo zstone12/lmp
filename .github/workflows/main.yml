@@ -29,7 +29,7 @@ jobs:
       - name: docker for influxdb & grafana
         run: |
             sudo docker pull grafana/grafana
-            sudo docker pull influxdb
+            sudo docker pull influxdb:1.8.3
             
              sudo docker run -d \
              -p 8083:8083 \
